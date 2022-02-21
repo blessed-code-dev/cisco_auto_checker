@@ -1,6 +1,11 @@
 document.addEventListener("click", function (event) {
 
 	let target = event.target;
+
+	if (target.parentElement.className === 'mattext'){
+		target = target.parentElement;
+	}
+
 	console.log(target)
 
 	//если клик не на вопрос, но выходим
@@ -8,7 +13,9 @@ document.addEventListener("click", function (event) {
 		return;
 	}
 
-	chrome.runtime.sendMessage({question: event.path[0].innerText}, function (response) {
+
+
+	chrome.runtime.sendMessage({question: target.innerText}, function (response) {
 		console.log(response.body);
 
 		let options = document.getElementsByClassName('ai-option-label');

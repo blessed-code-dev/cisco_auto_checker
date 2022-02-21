@@ -21,6 +21,7 @@
   },
 
   "web_accessible_resources": [
-    "questions_base.json"
+    "questions_base.json",
+    "questions_base_v1_1.json"
   ]
 }
